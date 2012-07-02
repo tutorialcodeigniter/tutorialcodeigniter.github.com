@@ -1,0 +1,6 @@
+permalink: /:categories/:title.html
+url: "http://tutorialcodeigniter.com"
+exclude:
+- README.md
+- Rakefile
+- post.sh
