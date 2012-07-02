@@ -9,7 +9,7 @@
 	{% else %}
 		<title>{{page.title}} - Codeigniter Video Tutorial for Beginners</title>
 	{% endif %}
-	
+
 	<script type="text/javascript" src='/js/highlight.pack.js'></script>
 	<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
 
@@ -33,7 +33,7 @@
 
 	<!-- FACEBOOK CODE END -->
 
-	<div id='dokeeno-content'>
+	<div id='layout'>
 
 		<div id='heading'>
 			<div id='logo'><a href='/'>Codeigniter Tutorial</a>: <a href='/beginners' id='logo_docs'>Beginners</a></div>
@@ -51,7 +51,7 @@
 				<h2>Topics</h2>
 				<ul>
 					{% for p in site.categories.beginners %}
-							<li><a {% if (p.id == site.categories.beginners[0].id)%} class='selected'{% endif %}href='{{p.url}}'>{{p.title}}</a></li>
+							<li><a {% if (p.title == page.title)%} class='selected'{% endif %}href='{{p.url}}'>{{p.title}}</a></li>
 					{% endfor %}
 
 				</ul>
@@ -66,37 +66,30 @@
 			<div id='page'>
 
 				{% if page.type == 'index' %}
+					{% assign page = site.categories.beginners[0] %}
+					{% assign content = site.categories.beginners[0].content %}
+				{% endif %}
 				
-					<h1 id='page-title'>{{site.categories.beginners[0].title}}</h1>
+				<h1 id='page-title'>{{page.title}}</h1>
 
-					<div id='video'>
-						<iframe width="640" height="480" src="http://www.youtube-nocookie.com/embed/{{site.categories.beginners[0].video}}?autohide=1&autoplay=0" frameborder="0" allowfullscreen></iframe>
-					</div>
-
-					<div id='content'>
-						{{site.categories.beginners[0].content}}
-					</div>
-
-				{% else %}
-
-					<h1 id='page-title'>{{page.title}}</h1>
-
-					{% if page.video %}
-					<div id='video'>
-						<iframe width="640" height="480" src="http://www.youtube-nocookie.com/embed/{{page.video}}?autohide=1&autoplay=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
-					</div>
-					{% endif %}
-
-					<div id='content'>
-						{{content}}
-					</div>
+				{% if page.video %}
+				<div id='video'>
+					<iframe width="640" height="480" src="http://www.youtube-nocookie.com/embed/{{page.video}}?autohide=1&autoplay=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+				</div>
 				{% endif %}
 
+				<div id='content'>
+					{{content}}
+				</div>
+
+				{% if page.comments != 'off' %}
 				<h3>Comments</h3>
+
 				<script type="text/javascript">
 					var fbCommentBox= '<div class="fb-comments" data-href="' + location.href + '" data-num-posts="5" data-width="700"></div>';
 					document.write(fbCommentBox);
 				</script>
+				{% endif %}
 			</div>
 			<div style='clear:both'></div>
 
@@ -112,7 +105,8 @@
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-33011342-1']);
+	  _gaq.push(['_setAccount', 'UA-33085517-1']);
+	  _gaq.push(['_setDomainName', 'tutorialcodeigniter.com']);
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {
@@ -122,7 +116,6 @@
 	  })();
 
 	</script>
-
 	<!-- END GA CODE -->
 
 </body>
