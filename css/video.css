@@ -1,103 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
-body {
-	margin: 0px;
-	text-align: center;
-	padding: 0px 20px 0px 20px;
-	border-top: 4px solid #333;
-}
-
-body, div, a, input, select, button, textarea {
-	font-family: 'Open Sans';
-	font-size: 14px;
-	color: #333333;
-}
-
-a {
-	text-decoration: none;
-	color: #d40055;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-img{
-	border: 0px;
-	box-shadow: 0 0px 5px #cccccc;
-	border-radius: 5px;
-    padding: 3px;
-}
-
-h1 {
-	font-size: 30px;
-	font-weight: normal;
-}
-
-
-#layout {
-	width: 930px;
-	margin: auto;
-	text-align: left;
-}
-
-#heading {
-	margin: 20px 0px 0px 0px;
-	position: relative;
-	height: 50px;
-	padding: 0px 0px 20px 0px;
-	border-bottom: 1px solid #cccccc;
-}
-
-#heading #logo {
-	float: left;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	font-size: 40px;
-}
-
-#logo a {
-    font-size: 40px;
-    color: #000000;
-    text-decoration: none;
-}
-
-#heading #logo #logo_docs {
-	color: #d40055;
-}
-
-#heading #links {
-	position: absolute;
-	top: 5px;
-	right: 0px;
-}
-
-#heading #links img {
-
-	box-shadow: 0 0px 0px #cccccc;
-	border-radius: 0px;
-    padding: 0px;
-    margin-bottom: 10px;
-}
-
-#content {
-	
-}
-
-#footer {
-	margin: 30px 0px 0px 0px;
-	padding: 10px 0px 10px 0px;
-	border-top: 1px solid #dddddd;
-	text-align: center;
-	font-size: 12px;
-}
-
-
 #pageList {
 	width: 200px;
 	float: left;
-	margin-top: 45px;
+	margin-top: 12px;
 	padding: 0px 20px 0px 0px;
 }
 
@@ -134,6 +38,6 @@ h1 {
 }
 
 #page {
-	width: 700px;
+	width: 650px;
 	float: left;
 }
