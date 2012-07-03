@@ -4,7 +4,7 @@ title: Log level fix for Codeigniter
 category: blog
 tags: ['codeigniter']
 image: /images/blog/log-level-fix.jpg
-summery: "Codeigniter's default log level is defined in wrong order. Here's how we can fix It."
+summery: "Codeigniter's log levels are defined in the wrong order. Here's how we can fix It."
 ---
 
 When writing quality applications, logging is one of the most important thing we need to look for. Just like every other framework Codeigniter has the logging facility and it works fine.
