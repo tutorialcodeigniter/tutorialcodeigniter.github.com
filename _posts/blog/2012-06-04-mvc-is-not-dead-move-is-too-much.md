@@ -45,6 +45,8 @@ People like flexibility. So It is upto you or your team to use MVC as you like. 
 
 Hope I did a good job on proving "MVC is not dead" :)
 
+[Continue the discussion on Hacker News](http://news.ycombinator.com/item?id=4197938)
+
 
 
 
