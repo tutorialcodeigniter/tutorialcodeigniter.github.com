@@ -131,7 +131,7 @@ h1 {
 
 .post-content {
 	margin-top: 10px;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 #side-bar {
@@ -175,7 +175,7 @@ h1 {
     line-height: 24px;
 }
 
-.nodejs { background-color: #008080}
+.mvc { background-color: #008080}
 .php { background-color: #aa00d4}
 .js { background-color: #2d5016}
 .jekyll { background-color: #aa0088}
