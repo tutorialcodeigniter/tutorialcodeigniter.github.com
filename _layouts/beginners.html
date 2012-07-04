@@ -32,14 +32,12 @@
 		<div id='heading'>
 			<div id='logo'><a href='/'>Tutorial Codeigniter<sup style='font-size:20px;'> &reg;</sup></a>: <a href='/beginners' id='logo_docs'>Beginners</a></div>
 			<div id='links'>
-				<a href='http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site'>
 					<a href='/beginners' >Beginners</a> | 
 					<a href='/blog' >Blog</a>
-				</a>
 			</div>
 			<div style='clear: both'></div>
 			{%  if page.type != 'index' %}
-			<a href='http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site' id='top-c2a'><img class='c2a' src='/images/top-c2a.png' /></a>
+			<a onclick="_gaq.push(['_link', 'http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site']); return false;" href='#' id='top-c2a'><img class='c2a' src='/images/top-c2a.png' /></a>
 			{% endif %}
 		</div>
 
@@ -55,7 +53,7 @@
 				</ul>
 
 				{%  if page.type != 'index' %}
-				<a href='http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site'>
+				<a onclick="_gaq.push(['_link', 'http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site']); return false;" href='#'>
 					<img class='c2a' src='/images/left-c2a.png'/>
 				</a>
 				{% endif %}
@@ -117,7 +115,8 @@
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-33085517-1']);
-	  _gaq.push(['_setDomainName', 'tutorialcodeigniter.com']);
+	  _gaq.push(['_setDomainName', 'none']);
+  	  _gaq.push(['_setAllowLinker', true]);
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {
@@ -128,6 +127,26 @@
 
 	</script>
 	<!-- END GA CODE -->
+
+	<!-- STRAT ADWORDS CONVERTION TRACKING CODE -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 988835101;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "ffffff";
+	var google_conversion_label = "VCb8CMOzpwQQndrB1wM";
+	var google_conversion_value = 0;
+	/* ]]> */
+	</script>
+	<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+	</script>
+	<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/988835101/?value=0&amp;label=VCb8CMOzpwQQndrB1wM&amp;guid=ON&amp;script=0"/>
+	</div>
+	</noscript>
+	<!-- END ADWORDS CONVERTION TRACKING CODE -->
 
 </body>
 </html>
