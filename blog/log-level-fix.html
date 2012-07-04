@@ -1,0 +1,164 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/monokai.css">
+	<link href="/blog/rss.xml" rel="alternate" type="application/rss+xml" title="Tutorials and News around Codeigniter" />
+
+	<title>Log level fix for Codeigniter - Tutorial Codeigniter - Blog</title>
+	<script type="text/javascript" src='/js/highlight.pack.js'></script>
+	<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+	<style type="text/css">
+
+
+	</style>
+</head>
+<body>
+
+	<div id='layout'>
+
+		<div id='heading'>
+			<div id='logo'><a href='/'>Tutorial Codeigniter<sup style='font-size:20px;'>&reg;</sup></a>: <a href='/blog' id='logo_docs'>Articles</a></div>
+			<div id='links'>
+				<a href='/beginners' >Beginners Guide</a> | 
+				<a href='/articles' >Articles</a>
+			</div>
+			<div style='clear: both'></div>
+		</div>
+
+		<div id='content'>
+	
+			<div id='side-bar'>
+				<div id='user'>
+					<img src="/images/users/arunoda.png" />
+					<div id='user-name'>Arunoda Susiripala</div>
+				</div>
+				<div id='date'>
+					June 03, 2012
+				</div>
+				<div id='tags'>
+					
+						<div> <span class='tag codeigniter'>codeigniter</span> </div>
+					
+				</div>
+			</div> 
+
+			<div id='page'>
+
+				<h1 id='page-title'>Log level fix for Codeigniter</h1>
+				<p>When writing quality applications, logging is one of the most important thing we need to look for. Just like every other framework Codeigniter has the logging facility and it works fine.</p>
+
+<p>But the order of log levels defined in codeigniter is wrong. Here is the default log levels in codeigniter.</p>
+
+<ol>
+<li>ERROR</li>
+
+<li>DEBUG</li>
+
+<li>INFO</li>
+
+<li>ALL</li>
+</ol>
+
+<h2 id='what_is_wrong_here'>What is wrong here?</h2>
+
+<p>INFO level need to have more severity than DEBUG. And the order needs to be revised as follows</p>
+
+<ol>
+<li>ERROR</li>
+
+<li><strong>INFO</strong></li>
+
+<li><strong>DEBUG</strong></li>
+
+<li>ALL</li>
+</ol>
+
+<p>Most of the popular log frameworks follow above standard and here is the <a href='http://en.wikipedia.org/wiki/Log4j#Log_level'>Log4j Wiki about it&#8217;s Log Level.</a></p>
+
+<h2 id='why_is_this_wrong'>Why is this wrong?</h2>
+
+<p>Someone might argue what is the problem here and argue that we treat it seperately. But the problem is not that.</p>
+
+<ul>
+<li>Internally codeigniter does nearly <strong>~10 DEBUG</strong> logs for a simple page request.</li>
+
+<li>And inside my controllers I do DEBUG and INFO logs seperately</li>
+
+<li>Normally we don&#8217;t need DEBUG logs in the production and just only need INFO logs</li>
+
+<li>But the because of this strange log level order we can&#8217;t just only filter out INFO logs</li>
+</ul>
+
+<h2 id='the_fix__core'>The Fix - Core</h2>
+
+<p>I&#8217;ve worked on this and sent a <a href='https://github.com/EllisLab/CodeIgniter/pull/1522'>pull request</a> to <a href='https://github.com/EllisLab/CodeIgniter'>Codeigniter Github</a> repository and It is waiting for the approval.</p>
+
+<p>Hope it will be added in the future versions of codeigniter</p>
+
+<h2 id='the_fix__extending_ci'>The Fix - Extending CI</h2>
+
+<p>I simply can&#8217;t just wait for the core fix approve for this and I extend the CI Log library and fix this. Here is the steps how it can be fixed</p>
+
+<ul>
+<li><a href='https://raw.github.com/arunoda/codeigniter-logfix/master/application/libraries/MY_Log.php'>Download this file</a></li>
+
+<li>Save this file into your <code>application/libraries</code> folder</li>
+
+<li>With <code>MY_Log.php</code> ( If you&#8217;ve changed <strong>Subclass Prefix</strong> to something else, use it instead <code>MY_</code> )</li>
+</ul>
+
+<p>Okay, this is my thoughts on this and If you&#8217;ve found this is interesting please find my <a href='https://github.com/EllisLab/CodeIgniter/pull/1522'>pull request</a> and express your opinion.</p>
+				
+				
+
+				<!-- DISQUS COMMENT CODE -->
+					<br><br>
+				    <div id="disqus_thread"></div>
+					<script type="text/javascript">
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'tutorialcodeigniter'; // required: replace example with your forum shortname
+
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+					</script>
+
+				<!-- DISQUS COMMENT CODE -->
+
+				
+			</div>
+			<div style='clear:both'></div>
+
+		</div>
+
+		<div id='footer'>
+			Learn It Correct - 2012<br>
+			CodeIgniter&reg; is a registered trademark of <a href='http://ellislab.com/'>EllisLab</a>, Inc.<br> This web site is an independent publication and has not been authorized, sponsored, or otherwise approved by EllisLab, Inc.
+		</div>
+
+	</div>
+
+	<!-- START GA CODE -->
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-33085517-1']);
+	  _gaq.push(['_setDomainName', 'tutorialcodeigniter.com']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<!-- END GA CODE -->
+
+</body>
+</html>
