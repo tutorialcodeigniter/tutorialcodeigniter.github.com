@@ -2,4 +2,5 @@
 layout: nil
 ---
 User-agent: *
+Disallow: /private
 Sitemap: {{site.url}}/sitemap.xml

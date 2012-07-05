@@ -13,16 +13,16 @@ title: RSS Feed
         <language>en</language>
         <copyright>{{site.url}}</copyright>
         <pubDate>{{site.time}}</pubDate>
-        <lastBuildDate>{{site.category.blog[0].date}}</lastBuildDate>
+        <lastBuildDate>{{site.category.articles[0].date}}</lastBuildDate>
         <ttl>30</ttl>
-        <atom:link href="http://www.learnitcorrect.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://www.learnitcorrect.com/articles/rss.xml" rel="self" type="application/rss+xml" />
         <image>
           <title>Codeigniter Video Tutorial for Beginners</title>
           <link>{{site.url}}</link>
           <description>Set of codeigniter video tutorials for beginners. Starting from the basics correctly</description>
         </image>
 
-        {% for post in site.categories.blog %}
+        {% for post in site.categories.articles %}
         <item>
           <title>{{post.title}}</title>
           <description>{{post.content}}</description>
