@@ -3,6 +3,8 @@
 	
 	<meta name="description" content="Set of well structured video tutorials, helps you to start codeigniter from the basics correctly" />
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<script type="text/javascript" src='/js/jquery.min.js'></script>
+	<script type="text/javascript" src='/js/hibar.min.js'></script>
 	<link rel="stylesheet" type="text/css" href="/css/video.css">
 	<link rel="stylesheet" type="text/css" href="/css/monokai.css">
 	<link href="/beginners/rss.xml" rel="alternate" type="application/rss+xml" title="Codeigniter Video Tutorial for Beginners" />
@@ -36,9 +38,9 @@
 					<a href='/articles' >Articles</a>
 			</div>
 			<div style='clear: both'></div>
-			{%  if page.type != 'index' %}
+		<!-- 	{%  if page.type != 'index' %}
 			<a onclick="_gaq.push(['_link', 'http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site']); return false;" href='#' id='top-c2a'><img class='c2a' src='/images/top-c2a.png' /></a>
-			{% endif %}
+			{% endif %} -->
 		</div>
 
 		<div id='content'>
@@ -47,16 +49,20 @@
 				<h2>Topics</h2>
 				<ul>
 					{% for p in site.categories.beginners %}
+
+							{% if p.sidebar != 'off' %}
 							<li><a {% if (p.title == page.title)%} class='selected'{% endif %}href='{{p.url}}'>{{p.title}}</a></li>
+							{% endif %}
+
 					{% endfor %}
 
 				</ul>
 
-				{%  if page.type != 'index' %}
+			<!-- 	{%  if page.type != 'index' %}
 				<a onclick="_gaq.push(['_link', 'http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site']); return false;" href='#'>
 					<img class='c2a' src='/images/left-c2a.png'/>
 				</a>
-				{% endif %}
+				{% endif %} -->
 			</div>
 
 			<div id='page'>
@@ -64,6 +70,7 @@
 				{% if page.type == 'index' %}
 					{% assign page = site.categories.beginners[0] %}
 					{% assign content = site.categories.beginners[0].content %}
+					{% assign indexPage = true %}
 				{% endif %}
 				
 				<h1 id='page-title'>{{page.title}}</h1>
@@ -147,6 +154,19 @@
 	</div>
 	</noscript>
 	<!-- END ADWORDS CONVERTION TRACKING CODE -->
+
+	<!-- START HIBAR NOTIFICATION -->
+	{{type}}
+	{% if indexPage != true %}
+		<script type="text/javascript">
+		var bar = new HiBar('more-videos');
+		var options = {
+			'open-text': 'FREE OFFER'
+		};
+		bar.init('Watch more tutorials for FREE', 'Sign Up Now', '/beginners/watch-more-videos.html', options);
+	</script>
+	{% endif %}
+	<!-- END HIBAR NOTIFICATION -->
 
 </body>
 </html>
