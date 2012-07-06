@@ -6,6 +6,8 @@
 	<link href="/articles/rss.xml" rel="alternate" type="application/rss+xml" title="Tutorials and News around Codeigniter" />
 
 	<title>{{page.title}} - Tutorial Codeigniter - Blog</title>
+	<script type="text/javascript" src='/js/jquery.min.js'></script>
+	<script type="text/javascript" src='/js/hibar.min.js'></script>
 	<script type="text/javascript" src='/js/highlight.pack.js'></script>
 	<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
 
@@ -98,12 +100,20 @@
 	</script>
 	<!-- END GA CODE -->
 
-	<!-- START HELLO BAR CODE -->
-	<script type="text/javascript" src="//www.hellobar.com/hellobar.js"></script>
+	<!-- START HIBAR CODE -->
 	<script type="text/javascript">
-	    new HelloBar(46611,69129);
+		
+		$(function() {
+
+			var b = new HiBar('twitter');
+			var options = {
+				"open-text": 'HELLO'
+			};
+
+			b.init("wanna discover more articles like this?", "follow us on twitter", "https://twitter.com/tutscodeigniter", options);
+		});
 	</script>
-	<!-- END HELLO BAR CODE -->
+	<!-- END HIBAR CODE -->
 
 </body>
 </html>

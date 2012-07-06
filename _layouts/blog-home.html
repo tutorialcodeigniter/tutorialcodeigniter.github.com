@@ -7,6 +7,7 @@
 
 	<title>Tutorial Codeigniter - Blog</title>
 	<script type="text/javascript" src='/js/jquery.min.js'></script>
+	<script type="text/javascript" src='/js/hibar.min.js'></script>
 	<script type="text/javascript" src='/js/jquery.masonry.min.js'></script>
 	<script type="text/javascript" src='/js/jquery.imagesloaded.min.js'></script>
 	<script type="text/javascript" src='/js/highlight.pack.js'></script>
@@ -80,13 +81,20 @@
 	</script>
 	<!-- END GA CODE -->
 
-	<!-- START HELLO BAR CODE -->
-	<script type="text/javascript" src="//www.hellobar.com/hellobar.js"></script>
+	<!-- START HIBAR CODE -->
 	<script type="text/javascript">
-	    new HelloBar(46611,69129);
-	</script>
-	<!-- END HELLO BAR CODE -->
+		
+		$(function() {
 
+			var b = new HiBar('twitter');
+			var options = {
+				"open-text": 'HELLO'
+			};
+
+			b.init("wanna discover more articles like this?", "follow us on twitter", "https://twitter.com/tutscodeigniter", options);
+		});
+	</script>
+	<!-- END HIBAR CODE -->
 
 </body>
 </html>
