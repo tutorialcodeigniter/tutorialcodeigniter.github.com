@@ -1,15 +1,32 @@
 <html>
 <head>
 	
+	<meta name="description" content="Set of well structured video tutorials, helps you to start codeigniter from the basics correctly" />
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<script type="text/javascript" src='/js/jquery.min.js'></script>
+	<script type="text/javascript" src='/js/hibar.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="/css/video.css">
 	<link rel="stylesheet" type="text/css" href="/css/monokai.css">
+	<link href="/beginners/rss.xml" rel="alternate" type="application/rss+xml" title="Codeigniter Video Tutorial for Beginners" />
+	<title>{{page.title}} - Codeigniter Video Tutorial for Beginners</title>
 
-	<title>{{page.title}} - Tutorial Codeigniter</title>
 	<script type="text/javascript" src='/js/highlight.pack.js'></script>
 	<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
 
 	<style type="text/css">
 
+		#top-c2a {
+			position: absolute;
+			right: 0px;
+			top: 80px;
+		}
+
+		#warning-box {
+			font-size: 13px;
+			padding: 5px;
+			background-color: #ffd5d5;
+			border: 2px solid #de8787;
+		}
 
 	</style>
 </head>
@@ -18,36 +35,40 @@
 	<div id='layout'>
 
 		<div id='heading'>
-			<div id='logo'><a href='/'>Tutorial Codeigniter<sup style='font-size:20px;'>&reg;</sup></div>
+			<div id='logo'><a href='/'>Tutorial Codeigniter<sup style='font-size:20px;'> &reg;</sup></a>: <a href='/beginners' id='logo_docs'>Beginners</a></div>
 			<div id='links'>
-				<a href='/beginners' >Beginners Guide</a> | 
-				<a href='/articles' >Articles</a>
+					<a href='/beginners' >Beginners Guide</a> | 
+					<a href='/articles' >Articles</a>
 			</div>
 			<div style='clear: both'></div>
+		<!-- 	{%  if page.type != 'index' %}
+			<a onclick="_gaq.push(['_link', 'http://www.udemy.com/codeigniter-learn-it-correct/?couponCode=tutorial-site']); return false;" href='#' id='top-c2a'><img class='c2a' src='/images/top-c2a.png' /></a>
+			{% endif %} -->
 		</div>
 
 		<div id='content'>
-	
-			<div id='side-bar'>
-				<div id='user'>
-					<img src="/images/users/arunoda.png" />
-					<div id='user-name'>Arunoda Susiripala</div>
-				</div>
-				<div id='date'>
-					{{ page.date | date: "%B %d, %Y"}}
-				</div>
-				<div id='tags'>
-					{% for tag in page.tags %}
-						<div> <span class='tag {{tag | downcase }}'>{{tag}}</span> </div>
-					{% endfor %}
-				</div>
-			</div> 
 
-			<div id='page'>
-
-				<h1 id='page-title'>{{page.title}}</h1>
-				{{content}}
+			<div id='page' style='border: 0px;'>
 				
+				<h1 id='page-title'>{{page.title}}</h1>
+
+				<div id='warning-box' >
+				This page is a private page. There is no link back to this page within our site. Please do bookmark or do a neccessory action to save this.
+				</div>
+				<p>
+				{{page.summery}}
+				</p>
+
+				{% if page.video %}
+				<div id='video'>
+					<iframe width="640" height="480" src="http://www.youtube-nocookie.com/embed/{{page.video}}?autohide=1&autoplay=0&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+				</div>
+				{% endif %}
+
+				<div id='content'>
+					{{content}}
+				</div>
+
 				{% if page.comments != 'off' %}
 
 				<!-- DISQUS COMMENT CODE -->
@@ -85,7 +106,8 @@
 
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-33085517-1']);
-	  _gaq.push(['_setDomainName', 'tutorialcodeigniter.com']);
+	  _gaq.push(['_setDomainName', 'none']);
+  	  _gaq.push(['_setAllowLinker', true]);
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {
@@ -96,6 +118,19 @@
 
 	</script>
 	<!-- END GA CODE -->
+
+	<!-- START HIBAR NOTIFICATION -->
+	{{type}}
+	{% if indexPage != true %}
+		<script type="text/javascript">
+		var bar = new HiBar('more-videos');
+		var options = {
+			'open-text': 'FREE OFFER'
+		};
+		bar.init('Watch more tutorials for FREE', 'Sign Up Now', '/beginners/watch-more-videos.html', options);
+	</script>
+	{% endif %}
+	<!-- END HIBAR NOTIFICATION -->
 
 </body>
 </html>
